@@ -1,0 +1,39 @@
+{
+  "name": "The AI Verse",
+  "short_name": "AI Verse",
+  "description": "Discover and manage AI applications",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/ai-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/ai-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Apps",
+      "url": "/store",
+      "description": "Browse AI applications"
+    },
+    {
+      "name": "Developer Console",
+      "url": "/developer/console",
+      "description": "Access developer tools"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "prefer_related_applications": false
+}
