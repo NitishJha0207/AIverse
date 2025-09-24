@@ -32,6 +32,23 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   }
 });
 
+// Test connection and log status
+const testConnection = async () => {
+  try {
+    const { data, error } = await supabase.from('app_listings').select('count').limit(1);
+    if (error) {
+      logger.error({ error }, 'Supabase connection test failed');
+    } else {
+      logger.info('Supabase connection successful');
+    }
+  } catch (err) {
+    logger.error({ error: err }, 'Supabase connection error');
+  }
+};
+
+// Test connection on initialization
+testConnection();
+
 // Helper function to handle database errors
 const handleDatabaseError = (error: any, context: string): never => {
   logger.error({ error, context }, 'Database error occurred');
