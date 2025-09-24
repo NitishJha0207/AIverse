@@ -1,17 +1,20 @@
 import pino from 'pino';
 import { supabase } from './supabase';
 
+// Check if we're in a browser environment
+const isBrowser = typeof window !== 'undefined';
+
 // Create a logger instance with pretty printing for development
 export const logger = pino({
   level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-  transport: {
+  transport: !isBrowser ? {
     target: 'pino-pretty',
     options: {
       colorize: true,
       translateTime: 'SYS:standard',
       ignore: 'pid,hostname'
     }
-  },
+  } : undefined,
   hooks: {
     logMethod(inputArgs, method) {
       // Store log in database
